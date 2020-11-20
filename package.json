@@ -1,16 +1,17 @@
 {
-  "name": "com.rfid",
+  "name": "rfidReaderPlugin",
   "displayName": "RFIDReaderPlugin",
-  "version": "1.0.0",
-  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "version": "0.0.1",
+  "description": "C72 UHF RFID Reader Plugin",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "ecosystem:cordova"
+    "C72",
+    "RFID Reader"
   ],
-  "author": "Apache Cordova Team",
+  "author": "David Novaski Neto",
   "license": "Apache-2.0",
   "devDependencies": {
     "cordova-android": "^9.0.0",

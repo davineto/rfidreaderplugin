@@ -6,7 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.rscja.deviceapi.RFIDWithUHF;
+//import com.rscja.deviceapi.RFIDWithUHF;
 
 public class RFIDReaderPlugin extends CordovaPlugin {
 	
@@ -16,11 +16,13 @@ public class RFIDReaderPlugin extends CordovaPlugin {
 	
 	private String action;
 	private CallbackContext callbackContext;
-	private RFIDWithUHF rfidReader;
+	
+	//private RFIDWithUHF rfidReader;
 	
 	private JSONArray result;  
 	private ReadTask readTask;
 	private boolean stop = false;
+	private int count;
 			 	 		
 	@Override
 	public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) {
@@ -35,7 +37,7 @@ public class RFIDReaderPlugin extends CordovaPlugin {
 					
 					this.stop = false;
 					
-					this.rfidReader.startInventoryTag(0, 0);
+					//this.rfidReader.startInventoryTag(0, 0);
 					
 					this.readTask = new ReadTask();
 					
@@ -51,7 +53,7 @@ public class RFIDReaderPlugin extends CordovaPlugin {
 					
 					this.stop = true;
 					
-					this.rfidReader.stopInventory();	
+					//this.rfidReader.stopInventory();	
 					
 					break;
 			}			
@@ -68,7 +70,7 @@ public class RFIDReaderPlugin extends CordovaPlugin {
 		if (this.action == null) 
 			throw new Exception("Action não informada");
 											
-		this.rfidReader = RFIDWithUHF.getInstance();
+		//this.rfidReader = RFIDWithUHF.getInstance();
 					
 	}
 			
@@ -96,13 +98,15 @@ public class RFIDReaderPlugin extends CordovaPlugin {
 		
 		private JSONObject read () throws JSONException {
 			
-			String[] result = rfidReader.readTagFromBuffer();
+			//String[] result = rfidReader.readTagFromBuffer();
 			
 			JSONObject jsonResult = null;
 			
 			if (result != null) {			
 				jsonResult = new JSONObject();
-				jsonResult.put("tagId", result[0]);
+				count ++;
+				jsonResult.put("tagId", count);
+				//jsonResult.put("tagId", result[0]);
 			}
 			
 			return jsonResult;	
